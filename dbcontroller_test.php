@@ -12,3 +12,18 @@ if($db->connectDB()){
 else{
     echo "Az adatbázis kapcsolat sikertelen <br>";
 }
+
+$query="SELECT * FROM fishingrod";
+$eredmeny =$db->executeSelectQuery($query);
+if($eredmeny !== "hiba"){
+    echo "Lekérdezés sikeres <br>";
+    echo "<pre>";
+    print_r($eredmeny);
+    echo "</pre>";
+}
+else{
+    echo "Lekérdezés sikertelen <br>";
+
+}
+$db->closeDB();
+echo "Lezárva";
